@@ -10,10 +10,10 @@ import "./App.css";
 const App: React.FC = () => {
  return (
  <Router>
- <div className="flex h-screen">
- <Sidebar />
- <div className="flex-1">
  <Header />
+ <div className="flex h-screen">
+ <div className="flex">
+ <Sidebar />
  <main className="p-4">
  <Routes>
  <Route path="/contacts" element={<ContactPage />} />

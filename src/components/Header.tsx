@@ -7,6 +7,8 @@ const Header: React.FC = () => {
  switch (location.pathname) {
  case "/contacts":
  return "Contact Page";
+ case "/":
+ return "Contact Page";
  case "/charts-and-maps":
  return "Charts and Maps";
  default:
@@ -15,7 +17,7 @@ const Header: React.FC = () => {
  };
 
  return (
- <header className="py-6 border-b-2 border-gray-200">
+ <header className="py-6 border-b-2 border-gray-200 bg-customColor text-white">
  <h1 className="text-2xl text-center">{getTitle()}</h1>
  </header>
  );

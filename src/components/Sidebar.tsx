@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
  return (
- <div className="w-64 bg-gray-800 text-white h-full">
+ <div className="w-64 bg-white-800 text-customColor h-full border-solid border-black border-2" style={{width:'15vw'}}>
  <nav className="mt-10 ml-2">
  <ul>
  <li className="mb-5">
