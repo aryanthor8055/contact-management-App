@@ -42,14 +42,18 @@ const ContactForm: React.FC<ContactFormProps> = ({
       onCancelEdit();
     }
   };
-
   return (
     <div>
-      <h2 className="text-2xl mb-4 text-center">
-        {contactToEdit ? "Edit Contact Screen" : "Create Contact Screen"}
-      </h2>
+      <div className="flex justify-between items-center cursor-pointer mb-8">
+        <h2 className="text-2xl">
+          {contactToEdit ? "Edit Contact" : "Create Contact"}
+        </h2>
+        <p className="text-xl font-bold" onClick={onCancelEdit}>
+          X
+        </p>
+      </div>
       <div className="mb-4">
-        <label className="block text-gray-700">First Name:</label>
+        <label className="block mb-2">First Name</label>
         <input
           type="text"
           className="w-full p-2 border rounded"
@@ -58,7 +62,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Last Name:</label>
+        <label className="block mb-2">Last Name</label>
         <input
           type="text"
           className="w-full p-2 border rounded"
@@ -67,17 +71,16 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Status:</label>
-        <div className="flex items-center space-x-4">
+        <label className="block mb-2">Status</label>
+        <div className="flex space-x-4">
           <label className="flex items-center">
             <input
               type="radio"
               value="Active"
               checked={status === "Active"}
               onChange={() => setStatus("Active")}
-              className="mr-2"
             />
-            Active
+            <span className="ml-2">Active</span>
           </label>
           <label className="flex items-center">
             <input
@@ -85,29 +88,25 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value="Inactive"
               checked={status === "Inactive"}
               onChange={() => setStatus("Inactive")}
-              className="mr-2"
             />
-            Inactive
+            <span className="ml-2">Inactive</span>
           </label>
         </div>
       </div>
-      <div className="flex justify-center">
-        <button
-          onClick={handleSave}
-          className={`px-4 py-2 rounded mr-2 ${
-            !isFormValid ? "bg-gray-300" : "bg-blue-500 text-white"
-          }`}
-          disabled={!isFormValid}
-        >
-          {contactToEdit ? "Save Edited Contact" : "Save Contact"}
-        </button>
-        <button
-          onClick={onCancelEdit}
-          className="px-4 py-2 rounded bg-red-500 text-white"
-        >
+      <button
+        onClick={handleSave}
+        className={`${
+          !isFormValid ? "bg-gray-300 cursor-not-allowed" : "bg-black"
+        } text-white px-4 py-2 rounded mt-4`}
+        disabled={!isFormValid}
+      >
+        {contactToEdit ? "Save Edited Contact" : "Save Contact"}
+      </button>
+      {contactToEdit && (
+        <button onClick={onCancelEdit} className="ml-4 text-red-500">
           Cancel
         </button>
-      </div>
+      )}
     </div>
   );
 };

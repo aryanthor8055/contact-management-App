@@ -1,5 +1,7 @@
 import React from "react";
 import { Contact } from "../types/types";
+import { ReactComponent as EditIcon } from "../assets/edit.svg";
+import { ReactComponent as DeleteIcon } from "../assets/delete.svg";
 
 interface ContactCardProps {
   contact: Contact;
@@ -13,23 +15,30 @@ const ContactCard: React.FC<ContactCardProps> = ({
   onDelete,
 }) => {
   return (
-    <div className="bg-gray-100 rounded-lg border p-4 flex flex-col items-center space-y-4">
-      <div className="flex-1 min-w-0 text-center">
-        <h3 className="text-lg font-semibold">{contact.firstName} {contact.lastName}</h3>
+    <div className="bg-white rounded-lg shadow-lg p-4 flex flex-col items-center space-y-4">
+      <img
+        src={`https://i.pravatar.cc/150?u=${contact.id}`}
+        alt="Avatar"
+        className="w-16 h-16 rounded-full"
+      />
+      <div className="flex-1 w-full text-center">
+        <h3 className="text-lg font-semibold">
+          {contact.firstName} {contact.lastName}
+        </h3>
         <p className="text-sm text-gray-600">{contact.status}</p>
       </div>
       <div className="flex space-x-4">
         <button
           onClick={() => onEdit(contact)}
-          className="px-4 py-2 bg-green-500 text-white rounded"
+          className="p-2 text-blue-500 hover:text-blue-700"
         >
-          Edit
+          <EditIcon className="w-5 h-5" />
         </button>
         <button
           onClick={() => onDelete(contact.id)}
-          className="px-4 py-2 bg-red-500 text-white rounded"
+          className="p-2 text-red-500 hover:text-red-700"
         >
-          Delete
+          <DeleteIcon className="w-5 h-5" />
         </button>
       </div>
     </div>
