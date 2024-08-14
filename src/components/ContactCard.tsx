@@ -1,5 +1,5 @@
 import React from "react";
-import { Contact } from "../store/types";
+import { Contact } from "../types/types";
 
 interface ContactCardProps {
   contact: Contact;

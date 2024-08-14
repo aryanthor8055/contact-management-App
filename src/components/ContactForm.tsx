@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addContact, editContact } from "../store/contactsSlice";
-import { Contact, ContactStatus } from "../store/types";
+import { ContactFormProps, ContactStatus } from "../types/types";
 import { v4 as uuidv4 } from "uuid";
-
-interface ContactFormProps {
-  contactToEdit: Contact | null;
-  onCancelEdit: () => void;
-  onSave: () => void;
-}
 
 const ContactForm: React.FC<ContactFormProps> = ({
   contactToEdit,
@@ -105,7 +99,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           }`}
           disabled={!isFormValid}
         >
-          Save Contact
+          {contactToEdit ? "Save Edited Contact" : "Save Contact"}
         </button>
         <button
           onClick={onCancelEdit}

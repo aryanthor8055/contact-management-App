@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ContactForm from "../components/ContactForm";
 import ContactList from "../components/ContactList";
-import { Contact } from "../store/types";
+import { Contact } from "../types/types";
 import { deleteContact } from "../store/contactsSlice";
 import { RootState } from "../store";
 
