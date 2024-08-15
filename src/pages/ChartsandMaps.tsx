@@ -75,12 +75,12 @@ const ChartsAndMaps: React.FC = () => {
             <div className="loader">Loading...</div>
           </div>
         ) : (
-          <div className="w-full h-96 z-10 overflow-hidden mt-6">
+          <div className="w-full h-96 overflow-hidden mt-6">
             <MapContainer
               center={[20, 0]}
               zoom={2}
               scrollWheelZoom={false}
-              style={{ height: "100%", width: "100%" }}
+              style={{ height: "100%", width: "100%"}}
             >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
